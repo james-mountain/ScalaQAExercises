@@ -4,7 +4,7 @@ def charsFromEndOfString(inputString : String, splitPoint : Int): String = {
     endString += inputString.charAt(i-1)
   }
 
-  return endString.reverse
+  endString.reverse
 }
 
 charsFromEndOfString("Hello", 3)

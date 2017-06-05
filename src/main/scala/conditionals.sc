@@ -1,5 +1,5 @@
 def operateOnIntegers(intOne : Int, intTwo : Int, perfAddition : Boolean): Int = {
-  return if (perfAddition) intOne + intTwo else intOne * intTwo;
+  if (perfAddition) intOne + intTwo else intOne * intTwo;
 }
 
 operateOnIntegers(3, 5, true);

@@ -1,11 +1,11 @@
 def operateOnIntegers(intOne : Int, intTwo : Int, perfAddition : Boolean): Int = {
   if (intOne == 0) {
-    return intTwo;
+    intTwo;
   } else if (intTwo == 0) {
-    return intOne;
+    intOne;
+  } else {
+    if (perfAddition) intOne + intTwo else intOne * intTwo;
   }
-
-  return if (perfAddition) intOne + intTwo else intOne * intTwo;
 }
 
 operateOnIntegers(0, 12, true);
