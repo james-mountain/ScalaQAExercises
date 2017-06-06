@@ -1,3 +1,1 @@
-val arraybuffer = scala.collection.mutable.ArrayBuffer.empty[String]
-java.util.TimeZone.getAvailableIDs.foreach(arraybuffer += _.split("/")(0))
-arraybuffer
+java.util.TimeZone.getAvailableIDs().map(s => s.split("/")).filter(a => a.size != 1).grouped(10).toList.map(t => (t(0)(1)))
