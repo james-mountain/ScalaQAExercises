@@ -1,8 +1,5 @@
 def determinePrimeNumbers(amount: Int) : Int = {
-  val isPrime : Array[Boolean] = new Array(amount)
-  for (i <- 1 until amount) {
-    isPrime(i) = true
-  }
+  val isPrime = Array.fill(amount)(true)
 
   for (i <- 2 to scala.math.sqrt(amount).toInt if isPrime(i)) {
     for (j <- i * i until amount by i) {
@@ -10,6 +7,6 @@ def determinePrimeNumbers(amount: Int) : Int = {
     }
   }
 
-  isPrime.count(x => x) - 1
+  isPrime.count(x => x)
 }
-determinePrimeNumbers(3000000)
+determinePrimeNumbers(2000000000)
