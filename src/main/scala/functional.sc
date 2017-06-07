@@ -1,1 +1,1 @@
-java.util.TimeZone.getAvailableIDs().map(s => s.split("/")).filter(a => a.size != 1).grouped(10).toList.map(t => (t(0)(1)))
+java.util.TimeZone.getAvailableIDs().map(s => s.split("/")).filter(a => a.size != 1).grouped(10).toArray.map(t => t(0)(1))
