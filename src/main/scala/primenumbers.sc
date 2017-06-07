@@ -1,18 +1,15 @@
 def determinePrimeNumbers(amount: Int) : Int = {
-  val isPrimeArray : Array[Boolean] = new Array(amount+1)
-  for (i <- 1 to amount) {
-    isPrimeArray(i) = true
+  val isPrime : Array[Boolean] = new Array(amount)
+  for (i <- 1 until amount) {
+    isPrime(i) = true
   }
 
-  for (i <- 2 to scala.math.sqrt(amount).toInt) {
-    if (isPrimeArray(i)) {
-      for (j <- i * i + (i-1)*i to amount) {
-        isPrimeArray(j) = false
-        println(j)
-      }
+  for (i <- 2 to scala.math.sqrt(amount).toInt if isPrime(i)) {
+    for (j <- i * i until amount by i) {
+      isPrime(j) = false
     }
   }
 
-  0
+  isPrime.count(x => x) - 1
 }
-determinePrimeNumbers(10000)
+determinePrimeNumbers(3000000)
