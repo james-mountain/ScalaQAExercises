@@ -24,11 +24,9 @@ def calculator(inputNumbers: Int*) = {
   })
 }
 
-calculator(4, 2, 2)
+calculator(5, 3, 15)
 calculator(4, 2, 8)
 calculator(6, 2, 12)
 calculator(6, 2, 3)
 calculator(9, 12, 108)
 calculator(4, 16, 64)
-
-calculator(4, 2, 6)
