@@ -1,11 +1,7 @@
 def uniqueSum(num1 : Int, num2 : Int, num3 : Int): Int = {
   val inputs = List(num1, num2, num3)
-  var sum = 0;
-  for (input <- inputs) {
-    if (inputs.count(x => x == input) == 1) {
-      sum += input;
-    }
-  }
+  var sum = 0
+  inputs.foreach(input => if (inputs.count(x => x == input) == 1) sum += input)
 
   sum
 }
