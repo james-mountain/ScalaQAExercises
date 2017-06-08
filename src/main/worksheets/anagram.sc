@@ -21,8 +21,7 @@ def makeAnagramHashmap(inputStrings: Array[String]) : mutable.HashMap[String, Ar
 
   hashmap
 }
-
-val anagrammap = makeAnagramHashmap(readFileIntoArray("C:/test.txt"))
+val anagrammap = makeAnagramHashmap(readFileIntoArray("test.txt"))
 anagrammap.foreach {case (base, anagrams) => printf("Base: %s - Anagrams: %s\n", base, anagrams.mkString(" "))}
 
 val largcount = anagrammap(anagrammap.maxBy { case (k,v) => v.length }._1).length
