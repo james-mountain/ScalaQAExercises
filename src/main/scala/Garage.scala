@@ -1,4 +1,4 @@
-import scala.collection.mutable.Queue
+import scala.collection.mutable
 import scala.collection.mutable.ListBuffer
 
 /**
@@ -9,7 +9,7 @@ class Garage() {
   var parkedVehicles : ListBuffer[Vehicle] = ListBuffer.empty
   val peopleInGarage : ListBuffer[Person] = ListBuffer.empty
   val registeredEmployees : ListBuffer[Employee] = ListBuffer.empty
-  val queue : Queue[Vehicle] = Queue.empty
+  val queue : mutable.Queue[Vehicle] = mutable.Queue.empty
   var open : Boolean = false
 
   def addVehicle(newVehicle: Vehicle) : Boolean = parkedVehicles.length match {
@@ -57,7 +57,7 @@ class Garage() {
       case part if part.isBroke => bill += part.timeAndCost()._2
       case _ =>
     }
-    bill;
+    bill
   }
 
   def openGarage() = {
@@ -65,8 +65,8 @@ class Garage() {
     var timeSinceOpen = 0
     var totalEarnings = 0.00
 
-    while ((!queue.isEmpty || !parkedVehicles.isEmpty)) {
-      if (!queue.isEmpty && addVehicle(queue.front)) {
+    while (queue.nonEmpty || parkedVehicles.nonEmpty) {
+      if (queue.nonEmpty && addVehicle(queue.front)) {
         val vehicle = queue.dequeue
         printf("New vehicle assessment: It will cost £%1.2f to fix the %s, which has %d broken parts.\n", calculateBill(vehicle), vehicle.modelName, vehicle.parts.count(part => part.isBroke))
       }
@@ -87,7 +87,7 @@ class Garage() {
         }
       }
 
-      timeSinceOpen += 1;
+      timeSinceOpen += 1
     }
 
     println(f"The garage was open for a total of $timeSinceOpen%s minutes, and made £$totalEarnings%1.2f.")
