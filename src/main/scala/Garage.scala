@@ -79,7 +79,7 @@ class Garage() {
         })
       parkedVehicles = parkedVehicles.filter(finishedVehicles)
 
-      for (vehicle <- parkedVehicles) {
+      for (vehicle <- parkedVehicles if vehicle.repairedBy == None) {
         val freeemployee = getFreeEmployee(timeSinceOpen)
         if (freeemployee.isDefined) {
           printf("%s is going to start fixing the %s at %d minutes from opening.\n", freeemployee.get.firstName, vehicle.modelName, timeSinceOpen)
